@@ -58,7 +58,7 @@ for (const arch of targetArchs) {
     cleanupTemporaryDiskImages();
     console.log(`Building macOS ${arch} DMG, attempt ${attempt}/${maxAttempts}`);
 
-    const status = run('npx', ['electron-builder', '--mac', 'dmg', `--${arch}`]);
+    const status = run('npx', ['electron-builder', '--mac', 'dmg', `--${arch}`, '--publish', 'never']);
     if (status === 0) {
       built = true;
       break;
