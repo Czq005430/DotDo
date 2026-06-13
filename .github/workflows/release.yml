@@ -25,6 +25,12 @@ jobs:
       - name: Install dependencies
         run: npm ci --no-audit
 
+      - name: Ensure python command exists
+        run: |
+          if ! command -v python >/dev/null 2>&1 && command -v python3 >/dev/null 2>&1; then
+            sudo ln -s "$(command -v python3)" /usr/local/bin/python
+          fi
+
       - name: Build macOS installers
         run: npm run dist:mac
         env:

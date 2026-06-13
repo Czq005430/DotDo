@@ -50,8 +50,8 @@ npm run dist:mac
 当推送匹配 `v*` 的 Git tag 时，GitHub Actions 会自动构建发布产物：
 
 ```bash
-git tag v1.0.0
-git push origin v1.0.0
+git tag vX.Y.Z
+git push origin vX.Y.Z
 ```
 
 工作流会把生成的 DMG 和 blockmap 文件上传到对应的 GitHub Release。

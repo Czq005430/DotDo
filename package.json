@@ -1,7 +1,7 @@
 {
   "name": "dotdo",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A minimalist, MacOS-style floating task manager.",
   "author": "Albert Chen",
   "main": "electron/main.cjs",
@@ -12,7 +12,7 @@
     "build:web": "tsc && vite build",
     "build": "npm run build:web && npm run fix:app-builder && electron-builder",
     "fix:app-builder": "chmod +x node_modules/app-builder-bin/mac/app-builder_*",
-    "dist:mac": "npm run build:web && npm run fix:app-builder && electron-builder --mac dmg --arm64 --x64",
+    "dist:mac": "npm run build:web && npm run fix:app-builder && node scripts/build-mac-dmg.cjs x64 arm64",
     "electron:dev": "concurrently \"vite\" \"wait-on tcp:5187 && electron .\""
   },
   "devDependencies": {
